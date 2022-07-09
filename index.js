@@ -9,4 +9,4 @@ app.use(json());
 app.use(productsRoute);
 app.use(ordersRoute);
 app.use(customersRoute);
-app.listen(PORT, () => console.log(`listening on port PORT`));
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
