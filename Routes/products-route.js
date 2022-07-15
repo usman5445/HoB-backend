@@ -15,4 +15,19 @@ router.get("/products", (req, res) => {
     .catch((err) => res.status(err.status || 400).send(err));
 });
 
+router.get("/products/:id", (req, res) => {
+  axios
+    .get(
+      `https://${STORENAME}.myshopify.com//admin/api/2022-04/products/${req.params.id}.json
+
+    `,
+      {
+        headers: {
+          "X-Shopify-Access-Token": ACCESS_TOKEN,
+        },
+      }
+    )
+    .then((resp) => res.send(resp.data))
+    .catch((err) => res.status(err.status || 400).send(err));
+});
 module.exports = router;
