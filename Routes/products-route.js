@@ -30,4 +30,5 @@ router.get("/products/:id", (req, res) => {
     .then((resp) => res.send(resp.data))
     .catch((err) => res.status(err.status || 400).send(err));
 });
+
 module.exports = router;
