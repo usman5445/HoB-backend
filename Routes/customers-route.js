@@ -55,9 +55,34 @@ router.post("/login", (req, res) => {
               : response.data.errors
           );
       }
-      res.send(
-        response.data.data.customerAccessTokenCreate.customerAccessToken
-      );
+      // fetching customer data
+      axios
+        .post(
+          `https://${STORENAME}.myshopify.com/api/graphql.json`,
+          `query {
+        customer(customerAccessToken: "${response.data.data.customerAccessTokenCreate.customerAccessToken.accessToken}") {
+          id
+          firstName
+          lastName
+          email
+          phone
+        }
+      }`,
+          {
+            headers: {
+              "Content-Type": "application/graphql",
+              "Access-Control-Origin": "*",
+              "X-Shopify-Storefront-Access-Token": STOREFRONT_ACCESS_TOKEN,
+            },
+          }
+        )
+        .then((custResp) => {
+          console.log(custResp.data);
+          res.send({
+            ...response.data.data.customerAccessTokenCreate.customerAccessToken,
+            ...custResp.data.data.customer,
+          });
+        });
     });
 });
 
