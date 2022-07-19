@@ -8,7 +8,7 @@ const customersRoute = require("./Routes/customers-route");
 const app = express();
 app.use(json());
 app.use(productsRoute);
-app.use(cors({origin:'https://velvety-cactus-c50ce9.netlify.app'}));
+app.use(cors({origin:'*'}));
 app.use(ordersRoute);
 app.use(customersRoute);
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
