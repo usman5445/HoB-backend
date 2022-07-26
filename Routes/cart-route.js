@@ -168,6 +168,10 @@ router.post("/addtocart", (req, res) => {
                       amount
                       currencyCode
                     }
+                    priceV2{
+                      amount
+                      currencyCode
+                    }
                     product{
                       title  
                       description
@@ -253,6 +257,10 @@ router.post("/removefromcart", (req, res) => {
                       url
                     }
                     unitPrice{
+                      amount
+                      currencyCode
+                    }
+                    priceV2{
                       amount
                       currencyCode
                     }
@@ -344,6 +352,10 @@ router.post("/updateQuantity", (req, res) => {
                       url
                     }
                     unitPrice{
+                      amount
+                      currencyCode
+                    }
+                    priceV2{
                       amount
                       currencyCode
                     }
