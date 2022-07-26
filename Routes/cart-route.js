@@ -78,6 +78,7 @@ router.post("/getcart", (req, res) => {
                       amount
                       currencyCode
                     }
+                    priceV2
                     product{
                       title  
                       description
