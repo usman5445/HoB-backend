@@ -70,6 +70,18 @@ router.post("/getcart", (req, res) => {
             merchandise {
               ... on ProductVariant {
                 id
+                      title
+                    image{
+                      url
+                    }
+                    unitPrice{
+                      amount
+                      currencyCode
+                    }
+                    product{
+                      title  
+                      description
+                    }
               }
             }
             attributes {
