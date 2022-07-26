@@ -20,6 +20,7 @@ router.post("/newcart", (req, res) => {
             }){
               cart{
                 id
+                checkoutUrl
                 createdAt
                 updatedAt
                 buyerIdentity {
@@ -60,6 +61,7 @@ router.post("/getcart", (req, res) => {
       id: "${req.body.cartId}"
     ) {
       id
+      checkoutUrl
       createdAt
       updatedAt
       lines(first:100) {
@@ -150,6 +152,7 @@ router.post("/addtocart", (req, res) => {
         ]){
           cart{
             id
+            checkoutUrl
             createdAt
             updatedAt
             lines(first:100) {
@@ -242,6 +245,7 @@ router.post("/removefromcart", (req, res) => {
         ]){
           cart{
             id
+            checkoutUrl
             createdAt
             updatedAt
             lines(first:100) {
@@ -337,6 +341,7 @@ router.post("/updateQuantity", (req, res) => {
         ]){
           cart{
             id
+            checkoutUrl
             createdAt
             updatedAt
             lines(first:100) {
